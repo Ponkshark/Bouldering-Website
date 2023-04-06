@@ -3,14 +3,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
-import './App.css'
-
-<link
-  rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
-  integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
-  crossorigin="anonymous"
-/>
+import './App.css';
 
 
 export default function App() {
@@ -31,13 +24,15 @@ export default function App() {
   const [routes, setRoutes] = useState(climbs);
 
 
-  const handleChange = () => {
-    return climbs.filter(c => c.ascended).map;
+  const handleChange = (e) => {
+    setRoutes(e.target.checked ? climbs.filter(c => c.ascended) : climbs);
   }
 
-  function removeClimb(i) {
-
+  function removeClimb(routeId) {
+    setRoutes(routes.filter(route => route.id !== routeId));
   }
+
+  // return <Container><Row><Col>Hello 1</Col><Col>Hello 2</Col></Row></Container>
 
   return (
     <div className="App">
@@ -77,7 +72,6 @@ export default function App() {
             </tr>
           </thead>
           <tbody>
-            {/* {routes.filter(c => c.ascended).map(routes => { */}
             {routes.map(routes => {
               return (
                 <tr key={routes.id}>
@@ -88,7 +82,7 @@ export default function App() {
                   <Button 
                     style={{ margin: "5%"}} 
                     variant="outline-danger" 
-                    onClick={removeClimb(1)}
+                    onClick={() => removeClimb(routes.id)}
                     >
                       Remove
                   </Button>
