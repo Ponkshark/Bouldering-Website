@@ -3,7 +3,13 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Navbar from './components/Navbar';
+import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import './App.css';
+
 
 
 export default function App() {
@@ -36,23 +42,13 @@ export default function App() {
 
   return (
     <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
+      <Router>
+        <Navbar />
+          <Routes>
+            <Route path='/' exact />
+          </Routes>
+      </Router>
       <div className="card">
-        <Button variant="outline-success" onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </Button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-        <br></br>
         <label>
         <input 
           type="checkbox" 
@@ -62,39 +58,33 @@ export default function App() {
         Only show completed climbs
       </label>
       <br></br>
-        <table>
-          <thead>
-            <tr>
-              <th>Grade</th>
-              <th>Color</th>
-              <th>Attempts</th>
-              <th>Ascended</th>
-            </tr>
-          </thead>
-          <tbody>
-            {routes.map(routes => {
-              return (
-                <tr key={routes.id}>
-                  <td>{ routes.grade }</td>
-                  <td style = {{color: `${routes.color}`}}>{ routes.color }</td>
-                  <td>{ routes.attempts }</td>
-                  <td>{String(routes.ascended)}</td>
-                  <Button 
-                    style={{ margin: "5%"}} 
-                    variant="outline-danger" 
-                    onClick={() => removeClimb(routes.id)}
-                    >
-                      Remove
-                  </Button>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
+      <Container>
+        <Row>
+          <Col>Grade</Col>
+          <Col>Color</Col>
+          <Col>Attempts</Col>
+          <Col>Ascended</Col>
+        </Row>
+        {routes.map(routes => {
+          return (
+            <Row key={routes.id}>
+              <Col>{ routes.grade }</Col>
+              <Col style = {{color: `${routes.color}`}}>{ routes.color }</Col>
+              <Col>{ routes.attempts }</Col>
+              <Col>{String(routes.ascended)}</Col>
+              <Col><Button 
+                style={{ margin: "5%"}} 
+                variant="outline-danger" 
+                onClick={() => removeClimb(routes.id)}
+                >
+                  Remove
+              </Button>
+              </Col>
+            </Row>
+          );
+        })}
+      </Container>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </div>
   )
 }
