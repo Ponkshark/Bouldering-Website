@@ -64,6 +64,7 @@ export default function App() {
           <Col>Color</Col>
           <Col>Attempts</Col>
           <Col>Ascended</Col>
+          <Col></Col>
         </Row>
         {routes.map(routes => {
           return (
