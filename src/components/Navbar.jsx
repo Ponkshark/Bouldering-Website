@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircleQuestion } from '@fortawesome/free-solid-svg-icons'
 import { faXmark } from '@fortawesome/free-solid-svg-icons'
@@ -22,6 +22,11 @@ function Navbar() {
         }
     };
 
+    // only renders signup button once, so on refresh, it doesn't create a new one in middle of screen on small screen sizes
+    useEffect(() => {
+        showButton()
+    }, [])
+
     window.addEventListener('resize', showButton);
 
     const XmarkIcon = <FontAwesomeIcon icon={faXmark} />;
@@ -31,8 +36,8 @@ function Navbar() {
     <>
         <nav className="narbar">
             <div className="navbar-container">
-                <Link to="/" className="navbar-logo">
-                     BoulderBound {/*<FontAwesomeIcon icon={faCircleQuestion} /> */}
+                <Link to="/" className="navbar-logo" onClick={closeMobileMenu}>
+                    <img style={{ width: 240, height: 65 }} src="/images/BoulderBoundIcon.PNG" alt="CompanyIcon" className="company-icon"/>
                 </Link>
                 <div className="menu-icon" onClick={handleClick}>
                     {click ? XmarkIcon : barsIcon}
