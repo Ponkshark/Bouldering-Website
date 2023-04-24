@@ -9,6 +9,7 @@ import Col from 'react-bootstrap/Col';
 import Navbar from './components/Navbar';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import './App.css';
+import Home from './components/pages/Home';
 
 
 
@@ -45,7 +46,7 @@ export default function App() {
       <Router>
         <Navbar />
           <Routes>
-            <Route path='/' exact />
+            <Route exact path='/' element={<Home />} />
           </Routes>
       </Router>
       <div className="card">

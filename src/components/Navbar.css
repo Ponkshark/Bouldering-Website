@@ -15,8 +15,9 @@
     justify-content: center;
     align-items: center;
     height: 80px;
-    max-width: 1500px;
     background-color: #3B413C;
+    z-index: 999;
+    position: relative;
   }
   
   .navbar-logo {
@@ -28,11 +29,13 @@
     font-size: 2rem;
     display: flex;
     align-items: center;
+    z-index: 999;
   }
   
   .fa-typo3 {
     margin-left: 0.5rem;
     font-size: 1.8rem;
+    z-index: 999;
   }
   
   .nav-menu {
@@ -44,10 +47,12 @@
     width: 60vw;
     justify-content: end;
     margin-right: 2rem;
+    z-index: 999;
   }
   
   .nav-item {
     height: 100px;
+    z-index: 999;
   }
   
   .nav-links {
@@ -57,15 +62,18 @@
     text-decoration: none;
     padding: 0.5rem 1rem;
     height: 100%;
+    z-index: 999;
   }
   
   .nav-links:hover {
     border-bottom: 4px solid #9DB5B2;
     transition: all 0.2s ease-out;
+    z-index: 999;
   }
   
   .fa-bars {
     color: #9DB5B2;
+    z-index: 999;
   }
   
   .nav-links-mobile {
@@ -79,6 +87,7 @@
   @media screen and (max-width: 960px) {
     .NavbarItems {
       position: relative;
+      z-index: 999;
     }
   
     .nav-menu {
@@ -91,6 +100,7 @@
       left: -100%;
       opacity: 1;
       transition: all 0.5s ease;
+      z-index: 999;
     }
   
     .nav-menu.active {
@@ -98,7 +108,7 @@
       left: 0;
       opacity: 1;
       transition: all 0.5s ease;
-      z-index: 1;
+      z-index: 1000;
     }
   
     .nav-links {
@@ -106,12 +116,14 @@
       padding: 2rem;
       width: 100%;
       display: table;
+      z-index: 999;
     }
   
     .nav-links:hover {
       background-color: #9DB5B2;
       color: #3B413C;
       border-radius: 0;
+      z-index: 999;
     }
   
     .navbar-logo {
@@ -119,6 +131,7 @@
       top: 10;
       left: 0;
       margin-left: 20px;
+      z-index: 999;
     }
   
     .menu-icon {
@@ -129,11 +142,13 @@
       transform: translate(-100%, 60%);
       font-size: 1.8rem;
       cursor: pointer;
+      z-index: 999;
     }
   
     .fa-times {
       color: #fff;
       font-size: 2rem;
+      z-index: 999;
     }
   
     .nav-links-mobile {
@@ -149,15 +164,18 @@
       padding: 14px 20px;
       border: 1px solid #9DB5B2;
       transition: all 0.3s ease-out;
+      z-index: 999;
     }
   
     .nav-links-mobile:hover {
       background: #9DB5B2;
       color: #3B413C;
       transition: 250ms;
+      z-index: 999;
     }
 
     .button-home-signup {
         border-right: 500px;
+        z-index: 999;
     }
   }
