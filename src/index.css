@@ -16,16 +16,29 @@
 
 a {
   font-weight: 500;
-  color: #646cff;
+  color: #242424;
   text-decoration: inherit;
 }
 a:hover {
   color: #9DB5B2;
 }
 
+p {
+  color: black;
+}
+
+ul {
+  margin-bottom: 0px;
+}
+
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
+}
+
+.form-control:focus {
+  border-color: #9DB5B2;
+  box-shadow: 0 0 0 0.25rem rgba(62,71,70,.25);;
 }
 
 @media (prefers-color-scheme: light) {

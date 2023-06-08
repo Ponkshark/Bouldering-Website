@@ -2,9 +2,9 @@ import React from 'react';
 import './CustomButton.css';
 import {Link} from 'react-router-dom';
 
-const STYLES = ['btn--primary', 'btn--outline'];
+const STYLES = ['btn--primary', 'btn--secondary', 'btn--outline', 'btn--blue', 'btn--red'];
 
-const SIZES = ['btn--medium', 'btn--large'];
+const SIZES = ['btn--small', 'btn--medium', 'btn--large'];
 
 
 export const CustomButton = ({
@@ -23,7 +23,7 @@ export const CustomButton = ({
     : SIZES[0];
 
     return (
-        <Link to='sign-up' className='btn-mobile'>
+        <Link to='/sign-up' className='btn-mobile'>
             <button
             className={`btn ${checkButtonStyle} ${checkButtonSize}`}
             onClick = {onClick}
